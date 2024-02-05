@@ -65,12 +65,15 @@ body {
     margin-bottom: 1rem;
     color: #7078C9;
 }
-input[type="radio"]{
-    display: none;
+.btn-container{
+    margin-bottom: 1rem;
 }
-input[type="radio"]:checked + label{
-    color: #fff;
+.btn{
+    border: none;
+    background: transparent;
+    color: #7078C9;
 }
+
 .cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr) ;
