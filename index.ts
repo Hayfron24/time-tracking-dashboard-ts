@@ -49,7 +49,7 @@ fetch(url)
 
     const newData = Object.values(data);
 
-    const cards = document.querySelectorAll('.cards');
+    const cards: NodeListOf<HTMLElement> = document.querySelectorAll('.cards');
     const elementsArray = Array.from(cards);
 
     let dailyData = '';
