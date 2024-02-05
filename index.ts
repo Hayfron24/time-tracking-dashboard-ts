@@ -56,59 +56,44 @@ fetch(url)
 
     const daily = newData.map(elements =>{
       const elementsModifiedArray = elementsArray.map((element) => {
-        buttons.forEach(button =>{
-          button.addEventListener('click', () =>{
-            if(button.id === 'daily-btn'){
-              element.innerHTML += ` <div class="card">
-                <div class="inner-card">
-                    <div class="status">
-                        <p>${elements.title}</p>
-                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                    </div>
-                    <div class="time">
-                        <h2>${elements.timeframes.daily.current}hrs</h2>
-                        <p>Last Week - ${elements.timeframes.daily.previous}hrs</p>
-                    </div>
-                </div>
-            </div>`
-              // alert(elements.title);
-            }else if(button.id === 'weekly-btn'){
-              // element.innerHTML = '';
-              element.innerHTML += ` <div class="card">
-              <div class="inner-card">
-                  <div class="status">
-                      <p>${elements.title}</p>
-                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                  </div>
-                  <div class="time">
-                      <h2>${elements.timeframes.weekly.current}hrs</h2>
-                      <p>Last Week - ${elements.timeframes.weekly.previous}hrs</p>
-                  </div>
+        buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const timeframe = button.id;
+    
+    // Reset the HTML content for all cards
+    cards.forEach(card => {
+      card.innerHTML = '';
+    });
+
+    newData.forEach(elements => {
+      const cardContainer = document.querySelector(`#${timeframe}-cards`);
+
+      if (cardContainer) {
+        cardContainer.innerHTML += `
+          <div class="card">
+            <div class="inner-card">
+              <div class="status">
+                <p>${elements.title}</p>
+                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
               </div>
-          </div>`
-          // location.reload()
-              // alert('Weekly')
-            }else if(button.id === 'monthly-btn'){
-              element.innerHTML += ` <div class="card">
-              <div class="inner-card">
-                  <div class="status">
-                      <p>${elements.title}</p>
-                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                  </div>
-                  <div class="time">
-                      <h2>${elements.timeframes.monthly.current}hrs</h2>
-                      <p>Last Week - ${elements.timeframes.monthly.previous}hrs</p>
-                  </div>
+              <div class="time">
+                <h2>${elements.timeframes[timeframe].current}hrs</h2>
+                <p>Last Week - ${elements.timeframes[timeframe].previous}hrs</p>
               </div>
-          </div>`
-              // alert('Monthly');
-            }
-            buttons.forEach(b =>{
-              b.classList.remove('active');
-            });
-            button.classList.add('active');
-          });
-        });
+            </div>
+          </div>`;
+      }
+    });
+
+    // Reset the active state for all buttons
+    buttons.forEach(b => {
+      b.classList.remove('active');
+    });
+
+    // Set the active state for the clicked button
+    button.classList.add('active');
+  });
+});
         // Do something with each element
         
         console.log( elements.title );
