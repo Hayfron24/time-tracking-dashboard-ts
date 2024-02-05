@@ -28,96 +28,72 @@ interface Monthly {
 
 const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn');
 
-const displayData: Function = (elements:string) =>{
 
-  
-}
 
 const url: string = 'data.json';
 
-fetch(url)
-  .then(response => {
-    // Check if the response status is in the range 200-299 (success)
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    // Parse the JSON in the response
-    return response.json();
-  })
-  .then((data: Data )=> {
-    // let conData = data;
+// ...
 
-    const newData = Object.values(data);
+// ...
 
-    const cards: NodeListOf<HTMLElement> = document.querySelectorAll('.cards');
-    const elementsArray = Array.from(cards);
-
-    let dailyData = '';
-
-    const daily = newData.map(elements =>{
-      const elementsModifiedArray = elementsArray.map((element) => {
-        buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    const timeframe = button.id;
-    
-    // Reset the HTML content for all cards
-    cards.forEach(card => {
-      card.innerHTML = '';
-    });
-
-    newData.forEach(elements => {
-      const cardContainer = document.querySelector(`#${timeframe}-cards`);
-
-      if (cardContainer) {
-        cardContainer.innerHTML += `
-          <div class="card">
-            <div class="inner-card">
-              <div class="status">
-                <p>${elements.title}</p>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </div>
-              <div class="time">
-                <h2>${elements.timeframes[timeframe].current}hrs</h2>
-                <p>Last Week - ${elements.timeframes[timeframe].previous}hrs</p>
-              </div>
-            </div>
-          </div>`;
+const displayData: Function = (timeframe: string) => {
+  fetch(url)
+    .then(response => {
+      // Check if the response status is in the range 200-299 (success)
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
-    });
+      // Parse the JSON in the response
+      return response.json();
+    })
+    .then((data: Data) => {
+      const newData = Object.values(data);
 
-    // Reset the active state for all buttons
+      const cardsContainer: HTMLElement = document.querySelector('.cards');
+      cardsContainer.innerHTML = ''; // Clear previous content
+
+      newData.forEach((element) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `<div class="inner-card">
+            <div class="status">
+                <p>${element.title}</p>
+                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </div>
+            <div class="time">
+                <h2>${element.timeframes[timeframe].current}hrs</h2>
+                <p>Last Week - ${element.timeframes[timeframe].previous}hrs</p>
+            </div>
+        </div>`;
+        cardsContainer.appendChild(card);
+      });
+    })
+    .catch(error => {
+      // Handle errors during the fetch or JSON parsing
+      console.error('Fetch error:', error);
+    });
+}
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    displayData(button.id.replace('-btn', ''));
     buttons.forEach(b => {
       b.classList.remove('active');
     });
-
-    // Set the active state for the clicked button
     button.classList.add('active');
   });
 });
-        // Do something with each element
-        
-        console.log( elements.title );
-        // console.log(`Element at index :`, element.innerHTML += `<h1>nice</h1>`);
-        return element; // You can modify the element or create a new array with modifications
-      });
-      
-    
-      console.log( elementsModifiedArray);
-     
-     
-      console.log( elements.timeframes.daily);
-      console.log( elements.timeframes.weekly );
-    })
-    
 
-    console.log(newData ,typeof(newData));
-    // console.log(conData ,typeof(conData));
-    
-  })
-  .catch(error => {
-    // Handle errors during the fetch or JSON parsing
-    console.error('Fetch error:', error);
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    displayData(button.id.replace('-btn', ''));
+    buttons.forEach(b => {
+      b.classList.remove('active');
+    });
+    button.classList.add('active');
   });
+});
 
 
 // const text: HTMLCollectionBase = document.querySelectorAll('h1');
