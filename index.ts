@@ -26,6 +26,17 @@ interface Monthly {
     previous: number;
 }
 
+const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn');
+
+buttons.forEach(button =>{
+  button.addEventListener('click', () =>{
+    buttons.forEach(b =>{
+      b.classList.remove('active');
+    });
+    button.classList.add('active');
+  });
+});
+
 const url: string = 'data.json';
 
 fetch(url)

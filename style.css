@@ -73,7 +73,9 @@ body {
     background: transparent;
     color: #7078C9;
 }
-
+.btn.active{
+    color: #fff;
+}
 .cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr) ;
