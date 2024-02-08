@@ -15,12 +15,13 @@ var displayData = function (timeframe) {
     })
         .then(function (data) {
         var newData = Object.values(data);
+        // console.log(data);
         var cardsContainer = document.querySelector('.cards');
         cardsContainer.innerHTML = ''; // Clear previous content
         newData.forEach(function (element) {
             var card = document.createElement('div');
             card.className = 'card';
-            card.innerHTML = "<div class=\"inner-card\">\n            <div class=\"status\">\n                <p>".concat(element.title, "</p>\n                <i class=\"fa fa-ellipsis-h\" aria-hidden=\"true\"></i>\n            </div>\n            <div class=\"time\">\n                <h2>").concat(element.timeframes[timeframe].current, "hrs</h2>\n                <p>Last Week - ").concat(element.timeframes[timeframe].previous, "hrs</p>\n            </div>\n        </div>");
+            card.innerHTML = "<div class=\"inner-card\">\n            <div class=\"status\">\n                <p>".concat(element.title, "</p>\n                <i class=\"fa fa-ellipsis-h\" aria-hidden=\"true\"></i>\n            </div>\n            <div class=\"time\">\n                <h2>").concat(element.timeframes[timeframe].current, "hrs</h2>\n                <p>").concat(element.timeframes[timeframe].previousTimeframe, " - ").concat(element.timeframes[timeframe].previous, "hrs</p>\n            </div>\n        </div>");
             cardsContainer.appendChild(card);
         });
     })["catch"](function (error) {

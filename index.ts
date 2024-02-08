@@ -14,16 +14,19 @@ interface Timeframes {
 interface Daily {
     current: number;
     previous: number;
+    previousTimeframe: string;
 }
 
 interface Weekly {
     current: number;
     previous: number;
+    previousTimeframe: string;
 }
 
 interface Monthly {
     current: number;
     previous: number;
+    previousTimeframe: string;
 }
 
 const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn');
@@ -48,8 +51,10 @@ const displayData: Function = (timeframe: string) => {
     })
     .then((data: Data) => {
       const newData = Object.values(data);
+      // console.log(data);
+      
 
-      const cardsContainer: HTMLElement = document.querySelector('.cards');
+      const cardsContainer = document.querySelector('.cards') as HTMLDivElement;
       cardsContainer.innerHTML = ''; // Clear previous content
 
       newData.forEach((element) => {
@@ -62,7 +67,7 @@ const displayData: Function = (timeframe: string) => {
             </div>
             <div class="time">
                 <h2>${element.timeframes[timeframe].current}hrs</h2>
-                <p>Last Week - ${element.timeframes[timeframe].previous}hrs</p>
+                <p>${element.timeframes[timeframe].previousTimeframe} - ${element.timeframes[timeframe].previous}hrs</p>
             </div>
         </div>`;
         cardsContainer.appendChild(card);

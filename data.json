@@ -4,15 +4,18 @@
     "timeframes": {
       "daily": {
         "current": 5,
-        "previous": 7
+        "previous": 7,
+        "previousTimeframe": "Yesterdsay"
       },
       "weekly": {
         "current": 32,
-        "previous": 36
+        "previous": 36,
+        "previousTimeframe": "Last Week"
       },
       "monthly": {
         "current": 103,
-        "previous": 128
+        "previous": 128,
+        "previousTimeframe": "Last Month"
       }
     }
   },
@@ -21,15 +24,18 @@
     "timeframes": {
       "daily": {
         "current": 1,
-        "previous": 2
+        "previous": 2,
+        "previousTimeframe": "Yesterdsay"
       },
       "weekly": {
         "current": 10,
-        "previous": 8
+        "previous": 8,
+        "previousTimeframe": "Last Week"
       },
       "monthly": {
         "current": 23,
-        "previous": 29
+        "previous": 29,
+        "previousTimeframe": "Last Month"
       }
     }
   },
@@ -38,15 +44,18 @@
     "timeframes": {
       "daily": {
         "current": 0,
-        "previous": 1
+        "previous": 1,
+        "previousTimeframe": "Yesterdsay"
       },
       "weekly": {
         "current": 4,
-        "previous": 7
+        "previous": 7,
+        "previousTimeframe": "Last Week"
       },
       "monthly": {
         "current": 13,
-        "previous": 19
+        "previous": 19,
+        "previousTimeframe": "Last Month"
       }
     }
   },
@@ -55,15 +64,18 @@
     "timeframes": {
       "daily": {
         "current": 1,
-        "previous": 1
+        "previous": 1,
+        "previousTimeframe": "Yesterdsay"
       },
       "weekly": {
         "current": 4,
-        "previous": 5
+        "previous": 5,
+        "previousTimeframe": "Last Week"
       },
       "monthly": {
         "current": 11,
-        "previous": 18
+        "previous": 18,
+        "previousTimeframe": "Last Month"
       }
     }
   },
@@ -72,15 +84,18 @@
     "timeframes": {
       "daily": {
         "current": 1,
-        "previous": 3
+        "previous": 3,
+        "previousTimeframe": "Yesterdsay"
       },
       "weekly": {
         "current": 5,
-        "previous": 10
+        "previous": 10,
+        "previousTimeframe": "Last Week"
       },
       "monthly": {
         "current": 21,
-        "previous": 23
+        "previous": 23,
+        "previousTimeframe": "Last Month"
       }
     }
   },
@@ -89,15 +104,18 @@
     "timeframes": {
       "daily": {
         "current": 0,
-        "previous": 1
+        "previous": 1,
+        "previousTimeframe": "Yesterdsay"
       },
       "weekly": {
         "current": 2,
-        "previous": 2
+        "previous": 2,
+        "previousTimeframe": "Last Week"
       },
       "monthly": {
         "current": 7,
-        "previous": 11
+        "previous": 11,
+        "previousTimeframe": "Last Month"
       }
     }
   }
