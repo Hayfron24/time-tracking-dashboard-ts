@@ -197,12 +197,61 @@ body {
         transform: translate(0, 0);
         top: initial;
         left: initial;
-        background: red;
+        /* background: red; */
     }
     .profile-card{
-        width: 90;
+        width: 95%;
+        height: 12.688rem;
+        margin: 3rem 0 2rem 0;
+        /* background: red; */
+    }
+    .profile{
+        width: 100%;
+        height: 8.313rem;
+        display: flex;
+    }
+    .profile-pic{
+        width: 4rem;
+        height: 4rem;
+    }
+    .profile-detail{
+        margin: 0;
+    }
+    .profile-detail h2{
+        font-size: 1.5rem;
+    }
+    .timeframe{
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 2rem 0 2rem;
     }
     .cards{
+        width: 95%;
         grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 3rem;
+        /* background-color: greenyellow !important; */
     }
+    .card{
+        width: 100%;
+        height: 10rem;
+    }
+    .inner-card{
+        width: 100%;
+        height: 7.625rem;
+
+    }
+    .status{
+        padding: 1rem;
+    }
+    .time{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1rem 0 1rem;
+    }
+    .time h2{
+        font-size: 2rem;
+        padding: 0;
+    }
+    
 }
